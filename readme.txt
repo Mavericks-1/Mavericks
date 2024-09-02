@@ -50,3 +50,41 @@ Upon saving, the new sub-menu link will be added under the selected parent menu,
 Additional Notes:
 You can always return to edit the content and adjust the menu settings if needed.
 The changes will reflect immediately in the site's navigation menus after saving the content.
+
+
+
+
+
+Default Error Handling in Drupal for Menu Management
+Form Validation:
+
+Description: When creating or editing a menu link, Drupal automatically validates the input fields. If required fields (like the "Menu link title" or "Link path") are left blank, or if an invalid URL is entered, Drupal will display an error message and prevent the form from being submitted until the errors are resolved.
+User Feedback: Users are alerted with a red error message near the problematic field, explaining what needs to be corrected.
+Permission Checks:
+
+Description: Drupal checks the user’s permissions before allowing access to menu management functions. If a user without the necessary permissions tries to create, edit, or delete a menu link, Drupal will deny access and display an "Access Denied" message.
+User Feedback: The user sees an "Access Denied" message or is redirected to a page explaining they do not have the necessary permissions.
+Path Validation:
+
+Description: Drupal checks whether the path entered in the "Link path" field is valid. If the path points to a non-existent or unpublished page, Drupal will flag this and may display an error message.
+User Feedback: A warning or error message is displayed if the entered path does not match any existing content or valid URL.
+Conflict Resolution:
+
+Description: Drupal handles potential conflicts in menu structure, such as duplicate paths or titles, by appending numeric suffixes or issuing warnings. This helps prevent conflicts that could cause navigation issues.
+User Feedback: Drupal may automatically adjust conflicting items or provide a notification to the user about the conflict.
+Automatic Menu Item Removal:
+
+Description: If a piece of content is deleted, any associated menu links pointing to that content are automatically removed. This prevents broken links from appearing in the menu.
+User Feedback: No direct feedback is usually provided, but the menu item will no longer appear after the content is deleted.
+Error Logging:
+
+Description: Drupal logs various errors, including issues related to menu management, in the system logs. These logs can be accessed by administrators to diagnose and resolve issues.
+User Feedback: Administrators can view detailed error messages and logs under "Reports" > "Recent log messages" to troubleshoot issues.
+Cache Management:
+
+Description: Drupal automatically clears relevant cache entries when menu structures are updated. This ensures that changes are reflected across the site, minimizing issues caused by stale cache data.
+User Feedback: While this process is automatic, users can manually clear the cache if they notice that changes are not being immediately reflected.
+Handling Missing Parent Items:
+
+Description: If a menu link is assigned a parent item that is later removed, Drupal will reassign the orphaned menu link to the top level of the menu or another valid parent. This prevents the link from being lost.
+User Feedback: The link remains visible in the menu, but its position may change.
