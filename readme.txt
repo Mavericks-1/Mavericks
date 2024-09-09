@@ -88,3 +88,11 @@ Handling Missing Parent Items:
 
 Description: If a menu link is assigned a parent item that is later removed, Drupal will reassign the orphaned menu link to the top level of the menu or another valid parent. This prevents the link from being lost.
 User Feedback: The link remains visible in the menu, but its position may change.
+
+
+
+The header logo and background color change on hover, which might not be ideal for a consistent design.
+The submenu items are revealed only on click, rather than on hover, which could affect user experience.
+The menu structure is overly complex, with different classes assigned to each menu column, each having unique styles. This makes it difficult to implement a dynamic approach.
+The widths of the divs are defined in pixels instead of percentages, limiting responsiveness and scalability.
+These are some key observations from our quick review of the global header design.
