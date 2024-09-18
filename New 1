@@ -1,0 +1,17 @@
+use Drupal\Core\Form\FormStateInterface;
+
+function mymodule_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Adjust this to the form ID you want to alter (e.g., node form).
+  if ($form_id === 'node_my_content_type_form') {
+    // Assuming the paragraphs are in the 'field_paragraphs' field.
+    $form['#validate'][] = 'mymodule_validate_paragraph_count';
+  }
+}
+
+function mymodule_validate_paragraph_count(&$form, FormStateInterface $form_state) {
+  // Check how many 'grid' paragraph items are added.
+  $paragraphs = $form_state->getValue('field_paragraphs');
+  if (count($paragraphs) < 5) {
+    $form_state->setErrorByName('field_paragraphs', t('You must add at least 5 grid entries.'));
+  }
+}
