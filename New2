@@ -1,0 +1,26 @@
+/**
+ * Implements form validation for your custom form.
+ */
+function my_module_custom_form_validate($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Get the node entity from the form state.
+  $node = $form_state->getFormObject()->getEntity();
+
+  // Ensure the node has the paragraph field.
+  if ($node->hasField('field_paragraph')) {
+    // Get the paragraph field values.
+    $paragraphs = $node->get('field_paragraph')->referencedEntities();
+
+    // Loop through each paragraph to get its field values.
+    foreach ($paragraphs as $paragraph) {
+      // Example: Access a specific field in the paragraph.
+      if ($paragraph->hasField('field_paragraph_text')) {
+        $paragraph_text = $paragraph->get('field_paragraph_text')->value;
+
+        // Perform your validation logic.
+        if (empty($paragraph_text)) {
+          $form_state->setErrorByName('field_paragraph', t('The paragraph text cannot be empty.'));
+        }
+      }
+    }
+  }
+}
