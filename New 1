@@ -15,3 +15,22 @@ function mymodule_validate_paragraph_count(&$form, FormStateInterface $form_stat
     $form_state->setErrorByName('field_paragraphs', t('You must add at least 5 grid entries.'));
   }
 }
+
+
+
+/**
+ * Implements hook_field_widget_LINK_DEFAULT_form_alter().
+ */
+function mymodule_field_widget_link_default_form_alter(&$element, &$form, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+  // Check if the field is the URI field within the paragraph entity.
+  if ($context['items']->getEntity()->getEntityTypeId() == 'paragraph' && $context['field']['field_name'] == 'field_uri') {
+    // Loop through all instances of the field (in case it's unlimited).
+    foreach ($element as &$widget_instance) {
+      if (isset($widget_instance['uri'])) {
+        // Override the translatable markup for the description.
+        $widget_instance['uri']['#description'] = t('Your updated help text goes here. 
+        Start typing the title of content to select it. You can also enter an internal path such as /node/add or an external URL such as https://example.com. Enter <front> to link to the front page. Enter <nolink> to display link text only. Enter <button> to display keyboard-accessible link text only.');
+      }
+    }
+  }
+}
