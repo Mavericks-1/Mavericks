@@ -1,25 +1,15 @@
-Menu Creation in Drupal: Content Menu and Self-Service Menu
-As part of enhancing the site's navigation, we are creating two new custom menus within Drupal:
+We've installed Composer as part of setting up the local development environment in VDI. However, we're encountering the following certificate error when executing any Composer commands. We set the proxy to xxx during installation and have confirmed that the environment variable is being set correctly.
 
-Content Menu:
-
-Purpose: The Content Menu will serve as a central navigation tool for managing and organizing content across the site. This menu will allow administrators to configure menu lists and pages that are directly related to content navigation. It will streamline access to various content types, making it easier for users to find and manage the content they need.
-
-Usage: This menu is particularly useful for site administrators and content managers who need to organize the website’s content structure effectively. It can be used to group content types, categories, and individual content items into a logical and user-friendly hierarchy.
-
-Self-Service Menu:
-
-Purpose: The Self-Service Menu is designed to provide users with a clear and intuitive pathway to access their self-service pages. This menu will include links to user-specific pages such as profile management, account settings, and other personal user tools.
-
-Usage: This menu is intended to improve user experience by offering a streamlined navigation option for users to manage their accounts and access personalized services. It will be primarily accessible to authenticated users, offering them a convenient way to manage their interactions with the site.
+Do you have any insights into why this issue might be occurring? Any help would be appreciated.
 
 
 
 
 
 
-Adding Sub-Menu Links in Drupal
-Once the Content Menu and Self-Service Menu are created in the Drupal site, content creators can easily add sub-menu links through the content creation or edit page. Here are the steps:
+
+
+Content Menu and Self-Service Menu are created in the Drupal site, content creators can easily add sub-menu links through the content creation or edit page. Here are the steps:
 
 Steps to Add Sub-Menu Links:
 Log in to the Drupal Admin Interface:
